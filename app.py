@@ -39,11 +39,11 @@ if submit_btn== True:
     prediction = model.predict(user_data_array)[0]
     print(prediction)
     if prediction == 1:
-        st.markdown("<p style = 'font-size:20px; color:green'>Positive</p>", unsafe_allow_html= True)
+        st.warning("Positive")
 
 
     else:
-        st.markdown("<p style = 'font-size:20px; color:green'>Negative</p>" , unsafe_allow_html= True)
+        st.success(Negative)
 
 
 
