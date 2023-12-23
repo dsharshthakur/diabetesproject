@@ -40,10 +40,13 @@ if submit_btn== True:
     print(prediction)
     if prediction == 1:
         st.warning("Positive")
+        st.write("Don't Consume sugar from now.")
+
 
 
     else:
-        st.success("Negative")
+        st.success("Negative!")
+        st.write("You can eat more sugar haha!!..")
 
 
 
