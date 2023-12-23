@@ -6,7 +6,7 @@ import pandas as pd
 
 
 
-st.title("Diabetes checker")
+st.title("DiabDetect")
 st.write("Fill the below form.")
 with st.container(border = True):
     glucose = st.number_input("Glucose", value = 0)
