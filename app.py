@@ -13,9 +13,9 @@ with st.container(border = True):
     bp = st.number_input("Blood Pressure", value = 0,format = "%i")
     skin = st.number_input("Skin Thickness")
     insulin = st.number_input("Insulin")
-    bmi = st.number_input("BMI")
+    bmi = st.number_input("BMI", key = "bmi")
     pedigreefunction = st.number_input("DiabetesPedigreeFunction")
-    age = st.number_input("Age" , value = 18)
+  
     gender_radio = st.radio("Gender", options= ["Male" , "Female"], horizontal = True , )
     if gender_radio == "Female":
         pregnancy = st.number_input("No. of pregnancies in past(if any)", value = 0)
