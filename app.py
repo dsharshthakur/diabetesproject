@@ -43,7 +43,7 @@ if submit_btn== True:
 
 
     else:
-        st.success(Negative)
+        st.success("Negative")
 
 
 
