@@ -18,9 +18,10 @@ with st.container(border = True):
     age = st.number_input("Age" , value = 18)
     gender_radio = st.radio("Gender", options= ["Male" , "Female"], horizontal = True , )
     if gender_radio == "Female":
-        pregnancy = st.number_input("No. of pregnancies", value = 0)
+        pregnancy = st.number_input("No. of pregnancies in past(if any)", value = 0)
     else:
         pregnancy = 0
+    age = st.number_input("Age" , value = 18)
     col1 , col2, col3 = st.columns(3)
     with col2:
         submit_btn = st.button(label = "submit", key = "Submit_btn")
