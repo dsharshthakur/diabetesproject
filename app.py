@@ -1,0 +1,48 @@
+import streamlit as st
+import numpy as np
+import pickle
+import pandas as pd
+
+import streamlit as st
+
+
+st.title("Diabetes checker")
+st.write("Fill the below form.")
+with st.container(key= "user_form"):
+    glucose = st.number_input("Glucose", value = 0)
+    bp = st.number_input("Blood Pressure", value = 0,format = "%i")
+    skin = st.number_input("Skin Thickness")
+    insulin = st.number_input("Insulin")
+    bmi = st.number_input("BMI")
+    pedigreefunction = st.number_input("DiabetesPedigreeFunction")
+    age = st.number_input("Age" , value = 18)
+    gender_radio = st.radio("Gender", options= ["Male" , "Female"], horizontal = True , )
+    if gender_radio == "Female":
+        pregnancy = st.number_input("No. of pregnancies", value = 0)
+    else:
+        pregnancy = 0
+
+    submit_btn = st.button(label = "submit", key = "Submit_btn")
+
+with open("model.pickle",  "rb")  as file:
+    model = pickle.load(file)
+
+
+
+if submit_btn== True:
+    user_data = [pregnancy,glucose , bp , skin , insulin , bmi ,pedigreefunction, age]
+    user_data_array = np.array(user_data).reshape(1,-1)
+    print(user_data_array , user_data_array.shape)
+
+    prediction = model.predict(user_data_array)[0]
+    print(prediction)
+    if prediction == 1:
+        st.markdown("<p style = 'font-size:20px; color:green'>Positive</p>", unsafe_allow_html= True)
+
+
+    else:
+        st.markdown("<p style = 'font-size:20px; color:green'>Negative</p>" , unsafe_allow_html= True)
+
+
+
+
