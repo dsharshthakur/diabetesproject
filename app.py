@@ -8,7 +8,7 @@ import streamlit as st
 
 st.title("Diabetes checker")
 st.write("Fill the below form.")
-with st.container(key= "user_form"):
+with st.container(border = True):
     glucose = st.number_input("Glucose", value = 0)
     bp = st.number_input("Blood Pressure", value = 0,format = "%i")
     skin = st.number_input("Skin Thickness")
@@ -21,8 +21,9 @@ with st.container(key= "user_form"):
         pregnancy = st.number_input("No. of pregnancies", value = 0)
     else:
         pregnancy = 0
-
-    submit_btn = st.button(label = "submit", key = "Submit_btn")
+    col1 , col2, col3 = st.columns(3)
+    with col2:
+        submit_btn = st.button(label = "submit", key = "Submit_btn")
 
 with open("model.pickle",  "rb")  as file:
     model = pickle.load(file)
